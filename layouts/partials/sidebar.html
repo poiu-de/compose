@@ -11,21 +11,21 @@
     <h2 class="section_title{{ if eq $section.RelPermalink $permalink }} active{{ end }}"><a  href="{{ $section.Permalink }}" class="group">{{ $section.Title }}</a></h2>
       {{- $pages := $section.Pages }}
       {{- with $pages }}
-      <section class="" id="docs-{{ anchorize $section.Title }}">
-        {{- range . }}
-          {{- $isActiveSection := strings.HasPrefix $permalink $section.RelPermalink }}
-          {{- if $isActiveSection }}
-        {{- if .IsPage }}
-        <h3 class="section_link{{ if eq .RelPermalink $permalink }} active{{ end }}"><a id="docs-{{ anchorize .Title }}" href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        {{- if ne (print .TableOfContents) ""}}
-          {{- .TableOfContents }}
-        {{- end }}
-        {{- else }}
-        {{- template "tree" (dict "page" $page "section" .) }}
-        {{- end }}
+        <section class="" id="docs-{{ anchorize $section.Title }}">
+          {{- range . }}
+            {{- $isActiveSection := strings.HasPrefix $permalink $section.RelPermalink }}
+            {{- if $isActiveSection }}
+              {{- if .IsPage }}
+              <h3 class="section_link{{ if eq .RelPermalink $permalink }} active{{ end }}"><a id="docs-{{ anchorize .Title }}" href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                {{- if ne (print .TableOfContents) ""}}
+                  {{- .TableOfContents }}
+                {{- end }}
+              {{- else }}
+                {{- template "tree" (dict "page" $page "section" .) }}
+              {{- end }}
+            {{- end }}
           {{- end }}
-        {{- end }}
-      </section>
+        </section>
       {{- end }}
   </section>
   {{- end }}
