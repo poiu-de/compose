@@ -216,8 +216,8 @@ function loadActions() {
     if(!elem(`.${yanked}`, parent)) {
       parent.appendChild(copyText);
       setTimeout(function() { 
-        // parent.removeChild(copyText)
-      }, 3000);
+        parent.removeChild(copyText)
+      }, 2250);
     }
   }
 
