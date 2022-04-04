@@ -107,7 +107,7 @@ function loadActions() {
           tocItems.forEach(function(item){
             pushClass(item, 'toc_item');
             pushClass(item.firstElementChild, 'toc_link');
-          })
+          });
         }
       });
 
@@ -141,12 +141,14 @@ function loadActions() {
     }
 
     const paragraphs = elems('p');
-    paragraphs.forEach(function(p){
-      const buttons = elems('.button', p);
-      if(buttons.length > 1) {
-        pushClass(p, 'button_grid');
-      }
-    });
+    if (paragraphs) {
+      paragraphs.forEach(function(p){
+        const buttons = elems('.button', p);
+        if(buttons.length > 1) {
+          pushClass(p, 'button_grid');
+        }
+      });
+    }
   })();
 
   (function markExternalLinks(){
@@ -215,7 +217,7 @@ function loadActions() {
     copyText.innerText = 'Link Copied';
     if(!elem(`.${yanked}`, parent)) {
       parent.appendChild(copyText);
-      setTimeout(function() { 
+      setTimeout(function() {
         parent.removeChild(copyText)
       }, 2250);
     }
@@ -377,7 +379,7 @@ function loadActions() {
       } else {
         deleteClass(toTop, active);
       }
-    })
+    });
   })();
 
 }
