@@ -3,6 +3,11 @@ const doc = document.documentElement;
 const toggleId = 'toggle';
 const showId = 'show';
 const menu = 'menu';
+const active = 'active';
+// root_url must end with '/' for relative URLs to work properly
+let root_url = '{{ strings.TrimSuffix "/" .Site.BaseURL }}/';
+root_url = root_url.startsWith('http') ? root_url : window.location.origin;
+
 
 // defined in config.toml
 const rootURL = '{{ absURL "" }}';
