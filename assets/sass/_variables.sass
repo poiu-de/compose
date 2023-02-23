@@ -43,7 +43,7 @@ html
       &_icon
         transform: translateX(1.75rem) translateY(-50%) scale(1.1)
 
-  &.dark:not([data-mode="light"])
+  &[data-mode="auto"]
     @media (prefers-color-scheme: dark)
       @include darkmode
 
