@@ -173,11 +173,15 @@ function parseBoolean(string) {
   }
 }
 
-function loadSvg(icon, parent) {
-  parent.innerHTML = `
-  <svg class="icon_${icon}">
-    <use xlink:href="#${icon}"></use>
-  </svg>`;
+function loadSvg(file, parent, path = 'icons/') {
+  const link = new URL(`${path}${file}.svg`, rootURL).href;
+  fetch(link)
+  .then((response) => {
+    return response.text();
+  })
+  .then((data) => {
+    parent.innerHTML = data;
+  });
 }
 
 function copyToClipboard(str) {
