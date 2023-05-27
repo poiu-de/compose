@@ -286,7 +286,7 @@ function disableCodeLineNumbers(block){
       label = label === 'sh' ? 'shell' : label;
       if(label !== "fallback") {
         const labelEl = createEl();
-        labelEl.textContent = label;
+        //labelEl.textContent = label;
         pushClass(labelEl, 'lang');
         block.closest(`.${highlightWrap}`).appendChild(labelEl);
       }
