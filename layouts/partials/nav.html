@@ -30,7 +30,25 @@
 			{{- if or (hasPrefix .URL "http") (hasPrefix .URL "www.") }}
 				{{- $url = .URL }}
 			{{- end }}
-			<a class="nav-link{{if $active }} active{{end}}" href="{{ $url }}"><span{{if $active }} class="active"{{end}}>{{ T .Identifier | default .Name }}</span></a>
+			<a class="nav-link{{if $active }} active{{end}}" href="{{ $url }}"><span{{if $active }} class="active"{{end}}>
+          {{- $litPath := .Params.iconLight }}
+          {{- $darkPath := .Params.iconDark }}
+          {{- $defaultIcon := $litPath }}
+          {{- if not $litPath -}}
+            {{- $defaultIcon = $darkPath }}
+          {{- end -}}
+
+            {{- if or $litPath $darkPath }}
+            <picture data-lit="{{ $litPath }}" data-dark="{{ $darkPath }}">
+              {{ with $sp.enableDarkMode }}
+                <source srcset = '{{ $darkPath }}' media="(prefers-color-scheme: dark)">
+              {{ end }}
+              <img srcset = '{{ $defaultIcon }}' alt="{{ .Name }}" loading="lazy">
+            </picture>
+          {{- else }}
+            {{ T .Identifier | default .Name }}
+          {{- end }}
+        </span></a>
 		</li>
 		{{- end }}
 		{{ $repo := $sp.source }}
