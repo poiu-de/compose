@@ -33,7 +33,7 @@
     border: 1px solid var(--search-border-color)
     background: transparent
     color: var(--text)
-    box-shadow: 0 1rem 4rem rgba(0,0,0,0.17)
+    box-shadow: 0 1rem 4rem var(--shadow-color)
     font-size: 1rem
     &:hover, &:focus
       background: var(--search-bg)
@@ -59,7 +59,7 @@
       width: 13.5rem
       background-color: var(--overlay)
       border-radius: 0 0 0.25rem 0.25rem
-      box-shadow: 0 1rem 4rem rgba(0,0,0,0.17)
+      box-shadow: 0 1rem 4rem var(--shadow-color)
       position: absolute
       top: 125%
       display: grid
@@ -103,7 +103,7 @@
   margin: 1.5rem 0
   border-radius: 0.6rem
   background-color: var(--bg)
-  box-shadow: 0 1rem 2rem rgba(0,0,0,0.17)
+  box-shadow: 0 1rem 2rem var(--shadow-color)
   iframe
     left: 0
     top: 0
@@ -265,10 +265,10 @@
       border-radius: 1rem
       cursor: pointer
       transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1)
-      box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.15)
+      box-shadow: 0 0.25rem 1rem var(--shadow-color)
 
     &::before
-      box-shadow: 0 1rem 2rem rgba(0,0,0,0.17)
+      box-shadow: 0 1rem 2rem var(--shadow-color)
       z-index: 2
       right: 0
       filter: brightness(0.75)

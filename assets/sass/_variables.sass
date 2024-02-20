@@ -22,6 +22,7 @@ html
   --ease: ease
   --scroll-thumb: rgba(0,0,0,.06)
   --search-border-color: transparent
+  --shadow-color: rgba(0, 0, 0, 0.17)
 
   @mixin darkmode
     --color-mode: "dark"
@@ -35,8 +36,7 @@ html
     --scroll-thumb: rgba(255,255,255,.06)
     --search-bg: var(--accent)
     --search-border-color: var(--accent)
-    *
-      box-shadow: none !important
+    --shadow-color: rgba(200, 200, 200, 0.17)
 
   &[data-mode="dark"]
     @include darkmode
