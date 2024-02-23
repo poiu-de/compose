@@ -29,4 +29,14 @@
       {{- end }}
   </section>
   {{- end }}
+
+  {{/* Add a link to the github repo in the sidebar if the "github_repo" is
+       set in the _index.md of the project main page. */}}
+  <section class="aside_section" id="docs-github">
+    {{- $github_repo := .Param "github_repo" }}
+    {{- if $github_repo }}
+      <h3 class="section_title"><a href="{{ $github_repo }}" class="group" >Github Repo <i class="devicon-github-original section_title"></i></a></h2>
+    {{- end }}
+  </section>
+
 </aside>
