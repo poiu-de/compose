@@ -1,0 +1,26 @@
+{{- $s := .Site }}
+{{- $sp := $s.Params }}
+{{- $litPath := .Get "icon" }}
+{{- $darkPath := .Get "icon" }}
+{{- $label := .Get "label" }}
+{{- $url := .Get "url" }}
+<div class="feature">
+  <a href="{{ $url }}">
+    <div class="feature-icon">
+      <picture data-lit="{{ $litPath }}" data-dark="{{ $darkPath }}">
+        {{ with $sp.enableDarkMode }}
+        <source srcset = '{{ $darkPath }}' media="(prefers-color-scheme: dark)">
+        {{ end }}
+        <img srcset = '{{ $litPath }}' alt = '{{ $label }} Logo'>
+      </picture>
+    </div>
+
+    <div class="feature-label">
+      {{- $label }}
+    </div>
+  </a>
+
+  <div class="feature-description">
+   {{- .Inner | markdownify -}}
+  </div>
+</div>

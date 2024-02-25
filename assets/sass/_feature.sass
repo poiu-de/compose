@@ -1,0 +1,32 @@
+.feature-container
+  display: grid
+  grid-template-columns: 1fr
+
+@media screen and (min-width: 42rem)
+  .feature-container
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr))
+
+.feature
+  border-style: solid
+  border-radius: 6em
+  border-color: var(--theme)
+  padding: 2em
+  margin: 1em
+
+.feature-icon
+  & img
+    height: 8em
+    display: block
+    margin-left: auto
+    margin-right: auto
+
+.feature-label
+  font-size: 3em
+  color: var(--theme)
+  padding: 0.5em
+  text-align: center
+
+.feature-description
+  /*height: 100%*/
+  text-align: center
+  font-size: 1.5em
