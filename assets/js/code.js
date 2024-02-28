@@ -277,7 +277,7 @@ function disableCodeLineNumbers(block){
       let label = block.dataset.lang;
       const is_shell_based = shell_based.includes(label);
       if(is_shell_based) {
-        const lines = elems(lineClass, block);
+        const lines = elems('line_class', block);
         Array.from(lines).forEach(line => {
           pushClass(line, 'shell');
         });
